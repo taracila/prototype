@@ -1,0 +1,37 @@
+//General settings for html,body,etc
+
+@viewport{
+  zoom: 1;
+  width: extend-to-zoom;
+}
+
+@-ms-viewport{
+  width: extend-to-zoom;
+  zoom: 1;
+}
+
+html {
+  font-family: 'Open Sans', sans-serif;
+  @include regular;
+  background-color: $default-background-color;
+  color: $default-color;
+  font-size: $base-font-size; // Don't modify static unit.
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  line-height: 1.25;
+  position: relative;
+}
+
+body {
+  // Disable in production mode;
+  @include show-breakpoints;
+}
+
+.index-link {
+  // Disable in production mode;
+  @include index-link;
+}
+
+main {
+  margin-bottom: rem(30px);
+}

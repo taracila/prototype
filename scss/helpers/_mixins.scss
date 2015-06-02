@@ -1,0 +1,115 @@
+// Custom mixins.
+
+
+@mixin regular {
+  font-weight: 400;
+}
+
+@mixin light {
+  font-weight: 300;
+}
+
+@mixin semibold {
+  font-weight: 600;
+}
+
+@mixin bold {
+  font-weight: 700;
+}
+
+//Automated sprite creator
+//USAGE: @include sprite-background(down_open_mobile);
+
+@mixin sprite-background($name) {
+  background-image: sprite-url($sprites);
+  background-position: sprite-position($sprites, $name);
+  background-repeat: no-repeat;
+  display: block;
+  height: rem(image-height(sprite-file($sprites, $name)));
+  width: rem(image-width(sprite-file($sprites, $name)));
+  @media (-webkit-min-device-pixel-ratio: 2), (-o-min-device-pixel-ratio: 3 / 2), (min-device-pixel-ratio: 2) {
+    // Workaround for https://gist.github.com/2140082
+    @if sprite-position($sprites, $name) != sprite-position($sprites-retina, $name) {
+      $ypos: round(nth(sprite-position($sprites-retina, $name), 2) / 2);
+      background-position: 0 $ypos;
+    }
+    // Hard coded width of the normal sprite image. There must be a smarter way to do this.
+    @include background-size(rem(14px) auto);
+    background-image: sprite-url($sprites-retina);
+  }
+}
+
+//Single image background with retina support
+//USAGE:  @include background-image-retina('preloader', 'GIF', rem(20px), rem(20px));
+@mixin background-image-retina($file, $type, $width, $height) {
+  @include background-image(image-url($file + '.' + $type));
+
+  @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+    & {
+      @include background-image(image-url($file + '@2x.' + $type));
+      -webkit-background-size: $width $height;
+    }
+  }
+}
+
+// Add demo label for responsive info.
+@mixin show-breakpoints {
+  &:after {
+    bottom: rem(20px);
+    right: rem(20px);
+    padding: rem(5px 10px);
+    border-radius: 20px;
+    box-shadow: 0px 1px 10px rgba(36, 36, 36, 0.2);
+    font-size: rem(16px);
+    content: "Mobile";
+    position: fixed;
+    display: block;
+    color: black;
+    background-color: rgba(174, 201, 222, 0.75);
+    z-index: 1000;
+
+    @include breakpoint($tablet) {
+      content: "Tablet" !important;
+    }
+
+    @include breakpoint($desktop) {
+      content: "Small desktop" !important;
+    }
+
+    @include breakpoint($desktop-wide) {
+      content: "Wide desktop" !important;
+    }
+
+    @include breakpoint($desktop-superwide) {
+      content: "Super wide desktop" !important;
+    }
+  }
+}
+
+@mixin index-link {
+  position: fixed;
+  bottom: rem(20px);
+  left: rem(20px);
+  padding: rem(5px 10px);
+  border-radius: 20px;
+  display: block;
+  color: black;
+  background-color: rgba(174, 201, 222, 0.75);
+  z-index: 1000;
+  user-select: none;
+}
+
+
+// Clearfix as mixin.
+//Clearfix
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: '';
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}

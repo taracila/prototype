@@ -1,0 +1,46 @@
+// Index header.
+
+header {
+  margin: rem(20px) 0;
+}
+
+.index-header {
+  background-color: $header;
+
+  .logo {
+    @include span(last 2);
+
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      @include span(last 4);
+    }
+
+    @include susy-breakpoint($desktop, $susy_desktop) {
+      @include span(last 2);
+    }
+
+    svg {
+      width: 100%;
+    }
+  }
+
+  h1 {
+    @include span(2);
+    overflow: hidden;
+
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      @include span(4);
+    }
+
+    @include susy-breakpoint($desktop, $susy_desktop) {
+      @include span(4);
+    }
+
+    @include susy-breakpoint($desktop-wide, $susy_desktop-wide) {
+      @include span(3);
+    }
+
+    @include susy-breakpoint($desktop-superwide, $susy_desktop-superwide) {
+      @include span(2);
+    }
+  }
+}

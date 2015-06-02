@@ -1,0 +1,18 @@
+//Breakpoints definition
+
+// Mobile first.
+$mobile-landscape: 480px;
+$tablet: 768px;
+$desktop: 1024px;
+$desktop-wide: 1280px;
+$desktop-superwide: 1440px;
+
+// Pick specific breakpoint.
+$mobile-only: 'screen' 'max-width' $tablet - 1;
+$mobile-landscape-only: 'screen' 'max-width' $mobile-landscape - 1;
+$mobile-and-tablet: 'screen' 'max-width' $desktop - 1;
+$tablet-only: $tablet $desktop - 1;
+
+
+// Grid variables
+$container-margin: 10px;

@@ -2,6 +2,9 @@
 logs
 *.log
 
+#Souremaps
+*.css.map
+
 # Runtime data
 pids
 *.pid

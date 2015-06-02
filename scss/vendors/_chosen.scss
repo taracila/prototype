@@ -1,0 +1,215 @@
+.chosen-container {
+  font-size: rem(13px);
+  user-select: none;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  width: 100% !important;
+
+  .touch & {
+    display: none !important;
+  }
+
+  .chosen-drop {
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid $border;
+    border-top: 0;
+    left: -9999em;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 1010;
+  }
+
+  &.chosen-with-drop .chosen-drop {
+    left: 0;
+  }
+
+  a {
+    cursor: pointer;
+  }
+}
+
+.chosen-results {
+  margin: rem(0 2px 2px 0);
+  padding: rem(0 0 0 2px);
+  max-height: rem(240px);
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  
+  li {
+    padding: rem(5px 6px);
+    line-height: rem(15px);
+    user-select: none;
+    display: none;
+    list-style: none;
+    margin: 0;
+
+    .touch & {
+      padding: rem(12px 6px);
+    }
+
+    &.active-result {
+      cursor: pointer;
+      display: list-item;
+    }
+
+    &.disabled-result {
+      color: #ccc;
+      cursor: default;
+      display: list-item;
+    }
+
+    &.no-results {
+      background: #f4f4f4;
+      display: list-item;
+    }
+
+    &.group-result {
+      cursor: default;
+      display: list-item;
+      font-weight: bold;
+    }
+
+    &.group-option {
+      padding-left: rem(15px);
+    }
+
+    em {
+      font-style: normal;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      color: #a0a0a0;
+    }
+  }
+}
+
+// @end
+// @group Single Chosen
+
+
+.chosen-single {
+  padding: rem(0 0 0 8px);
+  line-height: rem(35px);
+  background-color: #fff;
+  border: 1px solid $border;
+  color: $grey-6;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    //@extend .reset_hover;
+  }
+
+  &:active {
+    color: $grey-6 !important;
+  }
+
+  div {
+    width: rem(27px);
+    display: block;
+    height: 100%;
+    position: absolute;
+    right: 0;     
+    top: 0; 
+  }
+
+  b {
+    display: block;
+    height: 100%;
+    width: 100%;
+    @extend %icons;
+    @extend .icon-arrow-down;
+
+    &:after {
+      font-size: rem(17px);
+      margin-top: rem(-8.5px);
+      color: $blue;
+      position: absolute;
+      top: 50%;
+    }
+  }
+
+  span {
+    margin-right: rem(35px);
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.chosen-default {
+  color: #999;
+}
+
+.chosen-single-with-deselect span {
+  margin-right: rem(38px);
+}
+
+.chosen-search {
+  padding: rem(3px 4px);
+  margin: 0;
+  position: relative;
+  white-space: nowrap;
+  z-index: 1010;
+}
+
+.chosen-drop {
+  margin-top: rem(-1px);
+  background-clip: padding-box;
+}
+
+.chosen-container-single-nosearch .chosen-search {
+  left: -9999em;
+  position: absolute;
+}
+
+// @end
+// @group Active
+
+.chosen-container-active {
+  .chosen-single {
+    border-color: $blue;
+    box-shadow: 0 4px 4px -2px rgba(0, 0, 0, 0.25) inset;
+  }
+
+  &.chosen-with-drop .chosen-single {
+    div {
+      background: transparent;
+      border-left: 0;
+    }
+
+    b {
+      &:after {
+        content: '';
+      }
+    }
+  }
+
+  .chosen-choices {
+    border: 1px solid #5897fb;
+    box-shadow: 0 0 rem(5px) rgba(0, 0, 0, .3);
+    li.search-field input[type="text"] {
+      color: #111 !important;
+    }
+  }
+}
+
+// @end
+// @group Disabled Support
+
+.chosen-disabled {
+  opacity: .5;
+
+  cursor: default;
+  .chosen-single, .chosen-choices .search-choice .search-choice-close {
+    cursor: default;
+  }
+}

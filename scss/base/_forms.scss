@@ -1,0 +1,30 @@
+form {
+  width: span(2);
+  label {
+    display: block;
+  }
+}
+
+fieldset {
+  > div {
+    margin-bottom: rem(10px);
+  }
+}
+
+input {
+  &[type='submit'] {
+    padding: rem(10px 20px);
+    display: inline-block;
+    appearance: none;
+    -webkit-appearance: none;
+    border: none;
+    background-color: $blue;
+    color: #fff;
+  }
+}
+
+input:not([type="submit"]), textarea {
+  width: 100%;
+  padding: rem(6px);
+  border: 1px solid $blue;
+}

@@ -1,0 +1,42 @@
+
+{% extends 'blocks/layout.twig' %}
+{% block title %}Index{% endblock %}
+{% block header %}{% endblock %}
+
+{% block content %}
+<div class="index-header">
+  <div class="container">
+    <h1>Prototype</h1>
+  {% include "blocks/logo.twig" %}
+  </div>
+</div>
+<div class="container">
+  <div class="left-side">
+    <div class="page-section-list">
+      <h2>Pages</h2>
+      <nav class="main-menu-index">
+        {% include "blocks/mainmenu.twig" %}
+      </nav>
+    </div>
+    <div class="page-section-list">
+      <h2>Modules</h2>
+      <ul>
+        <li><a href="#" title="Module">Module #1</a></li>
+        <li><a href="#" title="Module">Module #2</a></li>
+        <li><a href="#" title="Module">Module #3</a></li>
+        <li><a href="#" title="Module">Module #4</a></li>
+      </ul>
+    </div>    
+  </div>
+
+  <div class="right-side">
+    <div class="page-section-list">
+      <h2>Development</h2>
+      <p>This prototype has been built using <a href="#">Gulp</a>, which requires Node.js and Node Package Manager (npm).</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content-sidebar %}{% endblock %}
+{% block footer %}{% endblock %}

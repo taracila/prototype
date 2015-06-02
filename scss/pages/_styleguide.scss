@@ -1,0 +1,69 @@
+// Styleguide.
+
+.styleguide-section {
+  > h2 {
+    border-bottom: 4px solid $blue;
+    padding-bottom: rem(5px);
+    margin-bottom: rem(15px);
+  }
+}
+
+.styleguide-element {
+  margin-bottom: rem(20px);
+
+  @include susy-breakpoint($tablet, $susy_tablet) {
+    @include clearfix;
+  }
+}
+
+.styles-display {
+  @include susy-breakpoint($tablet, $susy_tablet) {
+    @include span(4);
+  }
+
+  @include susy-breakpoint($desktop, $susy_desktop) {
+    @include span(6);
+  }
+}
+
+.styles-params {
+  @include susy-breakpoint($tablet, $susy_tablet) {
+    @include span(last 4);
+  }
+
+  @include susy-breakpoint($desktop, $susy_desktop) {
+    @include span(last 6);
+  }
+}
+
+.icon-list {
+  @extend %clearfix;
+
+  li {
+    @include gallery(2);
+    border: 1px solid $blue;
+    //min-height: rem(100px);
+    margin-bottom: gutter(4);
+    text-align: center;
+    padding: rem(20px 10px);
+
+
+    @include susy-breakpoint($tablet, $susy_tablet) {
+      @include gallery(2);
+      margin-bottom: gutter(8);
+    }
+
+    @include susy-breakpoint($desktop, $susy_desktop) {
+      @include gallery(2);
+      margin-bottom: gutter(12);
+    }
+  }
+}
+
+.icon_apeareance  {
+  font-size: rem(25px);
+}
+
+.icon-class-name {
+  display: block;
+}

@@ -1,0 +1,99 @@
+// Susy grid.
+$debug: false;
+$show-image: 'hide';
+
+@if $debug == false {
+  $show-image: 'hide';
+} @else {
+  $show-image: 'show';
+}
+
+$susy: (
+  flow: ltr,
+  math: fluid,
+  container-position: $container-margin,
+  container: auto,
+  columns: 4,
+  gutters: 1/4,
+  column-width: false,
+  global-box-sizing: border-box,
+  debug: (
+    image: $show-image,
+    color: rgba(#66f, .25),
+    output: background,
+    toggle: top right,
+  )
+);
+
+$susy_tablet: (
+  container-position: center,
+  container: rem($tablet - ($container-margin * 2)),
+  columns: 8,
+  gutters: 1/4,
+  debug: (
+    image: $show-image,
+    color: rgba(#999, .25),
+    output: background,
+    toggle: top right,
+  ),
+);
+
+$susy_desktop: (
+  columns: 12,
+  gutters: 28px/58px,
+  container-position: center,
+  container: rem($desktop - ($container-margin * 2)),
+  debug: (
+    image: $show-image,
+    color: rgba(#222, .25),
+    output: background,
+    toggle: top right,
+  ),
+);
+
+$susy_desktop-wide: (
+  columns: 12,
+  gutters: 24px/83px,
+  container-position: center,
+  container: rem($desktop-wide - ($container-margin * 2)),
+  debug: (
+    image: $show-image,
+    color: rgba(#555, .25),
+    output: background,
+    toggle: top right,
+  ),
+);
+
+$susy_desktop-superwide: (
+  columns: 12,
+  gutters: 32px/89px,
+  container-position: center,
+  container: rem($desktop-superwide - ($container-margin * 2)),
+  debug: (
+    image: $show-image,
+    color: rgba(#000, .25),
+    output: background,
+    toggle: top right,
+  ),
+);
+
+.container {
+  @include container();
+
+  @include susy-breakpoint($tablet, $susy_tablet) {
+    @include container($susy_tablet);
+  }
+
+  @include susy-breakpoint($desktop, $susy_desktop) {
+    @include container($susy_desktop);
+  }
+
+  @include susy-breakpoint($desktop-wide, $susy_desktop-wide) {
+    @include container($susy_desktop-wide);
+  }
+
+  @include susy-breakpoint($desktop-superwide, $susy_desktop-superwide) {
+    @include container($susy_desktop-superwide);
+  }
+}
+

@@ -1,0 +1,12 @@
+{% set menu_links = [
+  {'link' : 'homepage.html', 'title' : 'Homepage', 'current' : ''},
+  {'link' : 'styleguide.html', 'title' : 'Styleguide', 'current' : ''},
+  {'link' : 'contact.html', 'title' : 'Contact', 'current' : ''},
+] 
+%}
+
+<ul>
+  {% for link in menu_links %}
+    <li><a href="{{ link.link }}" class="{{ link.current }}">{{ link.title }}</a></li>
+  {% endfor %}
+</ul>

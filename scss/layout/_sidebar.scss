@@ -1,0 +1,11 @@
+.sidebar {
+  @include susy-breakpoint($desktop, $susy_desktop) {
+    @include span(last 3);
+  }
+}
+
+.content-with-sidebar {
+  @include susy-breakpoint($desktop, $susy_desktop) {
+    @include span(9);
+  }
+}
