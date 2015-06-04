@@ -2,11 +2,14 @@
 logs
 *.log
 
-#Souremaps
-*.css.map
+# Ignore sass cache
+.npm/.sass-cache/
+.npm/node_modules
+.npm/bower_components/
 
-#SASS cache
-.sass-cache/
+# Ignore SASS source maps
+*.css.map
+css/styles.css
 
 # Runtime data
 pids
@@ -34,5 +37,4 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-node_modules
-bower_components/
+
