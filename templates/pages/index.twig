@@ -1,5 +1,5 @@
 
-{% extends 'blocks/layout.twig' %}
+{% extends '../layouts/layout.twig' %}
 {% block title %}Index{% endblock %}
 {% block header %}{% endblock %}
 
@@ -7,7 +7,7 @@
 <div class="index-header">
   <div class="container">
     <h1>Prototype</h1>
-  {% include "blocks/logo.twig" %}
+  {% include "../blocks/logo.twig" %}
   </div>
 </div>
 <div class="container">
@@ -15,7 +15,7 @@
     <div class="page-section-list">
       <h2>Pages</h2>
       <nav class="main-menu-index">
-        {% include "blocks/mainmenu.twig" %}
+        {% include "../blocks/mainmenu.twig" %}
       </nav>
     </div>
     <div class="page-section-list">

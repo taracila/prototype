@@ -1,0 +1,34 @@
+{% include '../blocks/head.twig' %}
+
+  {% block header %}
+    <header>
+      <div class="container">
+        {% include "../blocks/logo.twig" %}
+        <nav class="main-menu">
+          {% include "../blocks/mainmenu.twig" %}
+        </nav>
+        <h1>{% block page_heading %}{% endblock %}</h1>
+      </div>
+    </header>
+  {% endblock %}
+
+  <main>
+    {% block content %}
+    {% endblock %}
+
+    {% block content_sidebar %}
+      {% include '../blocks/sidebar.twig' %}
+    {% endblock %}
+  </main>
+
+  {% block footer %}
+    <footer>
+      <div class="container">
+        <p>&copy; All rights reserved</p> 
+      </div>
+    </footer>
+  {% endblock %}
+
+  {% include "../blocks/index-link.twig" %}
+
+{% include '../blocks/head.twig' %}

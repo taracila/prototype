@@ -1,5 +1,5 @@
 
-{% extends 'blocks/layout.twig' %}
+{% extends '../layouts/layout.twig' %}
 
 {% block title %}Styleguide{% endblock %}
 
@@ -36,8 +36,8 @@
 {% endblock %}
 
 {% block footer_scripts %}
-  {{ parent() }}
-  <script src="js/styleguide.js"></script>
+  {% parent %}
+  <script src="assets/js/styleguide.js"></script>
 {% endblock %}
 
 {% block content_sidebar %}{% endblock %}
