@@ -5,7 +5,7 @@
 
 {% block page_heading %}Homepage{% endblock %}
 
-{% block content-sidebar %}
+{% block content_sidebar %}
   <div class="container">
     <article class="content-with-sidebar">
       <p>Dorem ipsum de sit amet, consectetur adipiscing elit. Phasellus quis lectus metus, at posuere neque. Sed pharetra nibh eget orci convallis at posuere leo convallis. Sed blandit augue vitae augue scelerisque.</p>
@@ -15,8 +15,7 @@
     </article>
     <div class="sidebar">
       <h3>Sidebar</h3>
-      {% parent %}
+      {{ parent() }}
     </div>
   </div>
 {% endblock %}
-

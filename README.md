@@ -1,13 +1,12 @@
-### Setting Up Gulp With LiveReload for TWIG/SWIG template engine + SCSS Live edit/reload feature.
+# Setting Up Gulp With LiveReload for TWIG/SWIG template engine + SCSS Live edit/reload feature.
 
 ##Prototype installation instructions:
 
-#Prerequisites:
+###Prerequisites:
 Node.js
 Bower
 
-1. Init the project (included in package.json):
-'npm init'
+1. Navigate to .npm folder.
 
 2. Install all requred packages:
 'sudo npm install'

@@ -3,16 +3,16 @@
 var gulp = require('gulp'),
   browserSync = require('browser-sync'),
   filter = require('gulp-filter'),
-  swig = require('gulp-swig'),
+  twig = require('gulp-twig'),
   sass = require('gulp-ruby-sass'),
   sourcemaps = require('gulp-sourcemaps'),
   autoprefixer = require('gulp-autoprefixer'),
   prettify = require('gulp-html-prettify'),
   reload = browserSync.reload,
   src = {
-    scss: 'scss/**/*.scss',
-    css: 'css',
-    html: 'templates/**/*.twig',
+    scss: '../scss/**/*.scss',
+    css: '../css',
+    html: '../templates/**/*.twig',
   };
 
 /**
@@ -21,11 +21,9 @@ var gulp = require('gulp'),
 gulp.task('serve', ['sass', 'templates'], function () {
 
   browserSync({
-    server: "./",
-    files: ["css/styles.css", src.html]
+    server: "../",
+    files: ["../css/styles.css", src.html]
   });
-
-
 
   gulp.watch(src.scss, ['sass']);
   gulp.watch(src.html, ['templates']);
@@ -36,7 +34,7 @@ gulp.task('serve', ['sass', 'templates'], function () {
  * Kick off the sass stream with source maps + error handling
  */
 function sassStream() {
-  return sass('./scss', {
+  return sass('../scss', {
     sourcemap: true,
     style: 'expanded',
     unixNewlines: true
@@ -47,7 +45,7 @@ function sassStream() {
     .pipe(autoprefixer({ browsers: ['> 5%', 'last 1 version']}))
     .pipe(sourcemaps.write('./', {
       includeContent: false,
-      sourceRoot: '/scss'
+      sourceRoot: '../scss'
     }));
 }
 
@@ -70,14 +68,9 @@ gulp.task('sass', function () {
  */
 gulp.task('templates', function () {
   return gulp.src(src.html)
-    .pipe(swig({
-      load_json: false,
-      defaults: {
-        cache: false
-      }
-    }))
+    .pipe(twig())
     .pipe(prettify({indent_char: ' ', indent_size: 2}))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('../'))
     .on("end", reload);
 });
 
