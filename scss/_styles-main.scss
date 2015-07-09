@@ -1,12 +1,11 @@
 /*
   WARNING++++++++++++++++++++++++++++++++++++++++++++
   DO NOT EDIT styles.css file, this should be generated only by compiler
-  FFWco 
+  FFWagency.com 
 */
 
 //Required imports
 @import "../.npm/bower_components/susy/sass/susy";
-@import "../.npm/bower_components/breakpoint-sass/stylesheets/breakpoint";
 
 // Helpers.
 @import 'helpers/variables';
@@ -37,5 +36,9 @@
 @import 'layout/sidebar';
 
 // Pages.
+@import 'pages/index';
 @import 'pages/homepage';
 @import 'pages/styleguide';
+
+// Widgets.
+//@import 'widgets/name';

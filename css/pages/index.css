@@ -1,0 +1,11 @@
+.page-section-list span {
+  display: block;
+  font-style: italic;
+}
+.page-section-list li {
+  margin-bottom: rem(10px);
+}
+
+
+
+/*# sourceMappingURL=../pages/index.css.map */

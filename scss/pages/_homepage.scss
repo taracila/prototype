@@ -1,12 +1,12 @@
 
 .left-side {
-  @include susy-breakpoint($tablet, $susy_tablet) {
-    @include span(4);
+  @include susy-media(tablet) {
+    @include span(4 of 8);
   }
 }
 
 .right-side {
-  @include susy-breakpoint($tablet, $susy_tablet) {
-    @include span(last 4);
+  @include susy-media(tablet) {
+    @include span(last 4 of 8);
   }
 }

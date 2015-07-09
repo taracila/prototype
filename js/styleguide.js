@@ -1,5 +1,5 @@
 (function (window, document, $) {
-  $.getJSON("../fonts/selection.json", function (data) {
+  $.getJSON("fonts/selection.json", function (data) {
     var items = [];
 
     $.each(data.icons, function (key, value) {

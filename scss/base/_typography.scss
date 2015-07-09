@@ -7,11 +7,11 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: rem(26px);
 
-  @include susy-breakpoint($tablet, $susy_tablet) {
+  @include susy-media(tablet) {
     font-size: rem(40px);
   }
 
-  @include susy-breakpoint($desktop, $susy_desktop) {
+  @include susy-media(desktop) {
     font-size: rem(32px);
   }
 }
