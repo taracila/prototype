@@ -3,7 +3,7 @@
   border-top: 1px solid #000;
   margin: rem(10px 0);
 
-  @include susy-breakpoint($tablet, $susy_tablet) {
+  @include susy-media(tablet) {
     @include clearfix;
     border-top: 1px solid #000;
     border-bottom: 1px solid #000;
@@ -17,7 +17,7 @@
     border-bottom: 1px solid #000;
     padding-bottom: rem(10px);
 
-    @include susy-breakpoint($tablet, $susy_tablet) {
+    @include susy-media(tablet) {
       float: left;
       margin: rem(0 20px 0 0);
       border-bottom: none;

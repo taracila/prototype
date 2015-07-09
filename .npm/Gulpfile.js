@@ -8,11 +8,16 @@ var gulp = require('gulp'),
   sourcemaps = require('gulp-sourcemaps'),
   autoprefixer = require('gulp-autoprefixer'),
   prettify = require('gulp-html-prettify'),
+  data = require('gulp-data'),
+  path = require('path'),
   reload = browserSync.reload,
   src = {
     scss: '../scss/**/*.scss',
     css: '../css',
-    html: '../templates/**/*.twig',
+    html: '../templates/*.twig',
+    html_blocks: '../templates/**/*.twig',
+    dataJson: '../data/*.json',
+    javascript: '../js/*.js',
   };
 
 /**
@@ -26,7 +31,9 @@ gulp.task('serve', ['sass', 'templates'], function () {
   });
 
   gulp.watch(src.scss, ['sass']);
-  gulp.watch(src.html, ['templates']);
+  gulp.watch([src.html, src.html_blocks], ['templates']);
+  gulp.watch(src.javascript, reload);
+  gulp.watch(src.dataJson, reload);
 });
 
 
@@ -62,16 +69,26 @@ gulp.task('sass', function () {
     }));
 });
 
-
 /**
  * Generate templates.
  */
 gulp.task('templates', function () {
   return gulp.src(src.html)
+    .pipe(data(function (file) {
+      //return require('../data/global.json');
+      return require('../data/' + path.basename(file.path, '.twig') + '.json');
+    }))
     .pipe(twig())
     .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulp.dest('../'))
     .on("end", reload);
 });
 
-gulp.task('default', ['serve']);
+
+// CIBOX.
+if (process.env.APP_ENV === 'dev') {
+  gulp.task('default', ['sass', 'templates']);
+} else {
+  gulp.task('default', ['serve']);
+}
+

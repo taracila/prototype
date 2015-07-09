@@ -21,10 +21,17 @@
     <div class="page-section-list">
       <h2>Modules</h2>
       <ul>
-        <li><a href="#" title="Module">Module #1</a></li>
-        <li><a href="#" title="Module">Module #2</a></li>
-        <li><a href="#" title="Module">Module #3</a></li>
-        <li><a href="#" title="Module">Module #4</a></li>
+        {% for item in modules %}
+          <li><a href="{{ item.link }}">{{ item.name }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="page-section-list">
+      <h2>Javascript Libraries</h2>
+      <ul>
+        {% for item in jsmodules %}
+          <li><a href="{{ item.link }}">{{ item.name }}</a><span>{{ item.description }}</span></li>
+        {% endfor %}
       </ul>
     </div>    
   </div>

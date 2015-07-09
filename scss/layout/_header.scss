@@ -10,12 +10,12 @@ header {
   .logo {
     @include span(last 2);
 
-    @include susy-breakpoint($tablet, $susy_tablet) {
-      @include span(last 4);
+    @include susy-media(tablet) {
+      @include span(last 4 of 8);
     }
 
-    @include susy-breakpoint($desktop, $susy_desktop) {
-      @include span(last 2);
+    @include susy-media(desktop) {
+      @include span(last 2 of 12);
     }
 
     svg {
@@ -27,20 +27,12 @@ header {
     @include span(2);
     overflow: hidden;
 
-    @include susy-breakpoint($tablet, $susy_tablet) {
-      @include span(4);
+    @include susy-media(tablet) {
+      @include span(4 of 8);
     }
 
-    @include susy-breakpoint($desktop, $susy_desktop) {
-      @include span(4);
-    }
-
-    @include susy-breakpoint($desktop-wide, $susy_desktop-wide) {
-      @include span(3);
-    }
-
-    @include susy-breakpoint($desktop-superwide, $susy_desktop-superwide) {
-      @include span(2);
+    @include susy-media(desktop) {
+      @include span(4 of 12);
     }
   }
 }

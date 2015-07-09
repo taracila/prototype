@@ -25,6 +25,7 @@
       <title>Prototype - {% block title %}{% endblock %}</title>
       <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="css/styles.css">
+      <script src="js/lib/modernizr.min.js"></script>
       <meta name="viewport" content="width=device-width, initial-scale=1">
     {% endblock %}
   </head>
@@ -62,7 +63,14 @@
     {% include "index-link.twig" %}
 
     {% block footer_scripts %}
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+      <script src="js/lib/media.match.min.js"></script>
+      <script src="js/lib/enquire.min.js"></script>
+      <script src="js/lib/jquery.min.js"></script>
+      <script src="js/lib/fancybox/jquery.fancybox.pack.js"></script>
+      <script src="js/lib/jquery.tabbedcontent.min.js"></script>
+      <script src="js/lib/flexslider/jquery.flexslider-min.js"></script>
+      <script src="js/lib/slick/slick.min.js"></script>
+      <script src="js/script.js"></script>
     {% endblock %}
   </body>
 </html>

@@ -8,7 +8,6 @@
   "license": "MIT",
   "dependencies": {
     "susy": "~2.2.5",
-    "breakpoint-sass": "~2.5.0",
     "bower.json": "~0.6.9"
   },
   "ignore": [

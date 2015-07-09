@@ -1,5 +1,5 @@
 // Susy grid.
-$debug: false;
+$debug: false; // Set true to show the grid.
 $show-image: 'hide';
 
 @if $debug == false {
@@ -8,15 +8,15 @@ $show-image: 'hide';
   $show-image: 'show';
 }
 
+// Grid definition for all breakpoints. Use http://gridcalculator.dk/#/1200/12/52/20 to generate the grid.
 $susy: (
   flow: ltr,
   math: fluid,
-  container-position: $container-margin,
+  container-position: rem($container-margin),
   container: auto,
-  columns: 4,
-  gutters: 1/4,
+  columns: $column-mobile,
+  gutters: 15px/44px,
   column-width: false,
-  global-box-sizing: border-box,
   debug: (
     image: $show-image,
     color: rgba(#66f, .25),
@@ -26,10 +26,11 @@ $susy: (
 );
 
 $susy_tablet: (
-  container-position: center,
-  container: rem($tablet - ($container-margin * 2)),
-  columns: 8,
-  gutters: 1/4,
+  container-position: rem($container-margin * 2),
+  container: auto,
+  columns: $column-tablet,
+  gutters: 29px/72px,
+  column-width: false,
   debug: (
     image: $show-image,
     color: rgba(#999, .25),
@@ -39,10 +40,10 @@ $susy_tablet: (
 );
 
 $susy_desktop: (
-  columns: 12,
-  gutters: 28px/58px,
+  columns: $column-desktop,
+  gutters: 28px/80px,
   container-position: center,
-  container: rem($desktop - ($container-margin * 2)),
+  container: rem($desktop - $container-margin * 2),
   debug: (
     image: $show-image,
     color: rgba(#222, .25),
@@ -52,48 +53,85 @@ $susy_desktop: (
 );
 
 $susy_desktop-wide: (
-  columns: 12,
-  gutters: 24px/83px,
+  columns: $column-desktop,
+  gutters: 20px/80px,
   container-position: center,
-  container: rem($desktop-wide - ($container-margin * 2)),
+  container: rem($desktop-wide - $container-margin * 2),
   debug: (
     image: $show-image,
-    color: rgba(#555, .25),
+    color: rgba(#222, .25),
     output: background,
     toggle: top right,
   ),
 );
 
 $susy_desktop-superwide: (
-  columns: 12,
-  gutters: 32px/89px,
+  columns: $column-desktop,
+  gutters: 20px/100px,
   container-position: center,
-  container: rem($desktop-superwide - ($container-margin * 2)),
+  container: rem($desktop-superwide - $container-margin * 2),
   debug: (
     image: $show-image,
-    color: rgba(#000, .25),
+    color: rgba(#222, .25),
     output: background,
     toggle: top right,
   ),
 );
 
+// Pick specific breakpoint.
+$susy-media: (
+  // max-width: 769px
+  mobileOnly: (
+    media: screen,
+    max-width: em($tablet - 1) * 1em,
+  ),
+
+  // max-width: 1023px
+  mobileTabletOnly: (
+    media: screen,
+    max-width: em($desktop - 1) * 1em,
+  ),
+
+  // min-width: 480px
+  mobileLandscape: em($mobile-landscape) * 1em,
+
+  // min-width: 768px and max-width: 1023px 
+  tabletOnly: (
+    media: screen,
+    min-width: em($tablet) * 1em,
+    max-width: em($desktop - 1) * 1em,
+  ),
+
+  // min-width: 768px
+  tablet: em($tablet) * 1em,
+
+  // min-width: 1024px
+  desktop: em($desktop) * 1em,
+
+  // min-width: 1280px
+  desktopWide: em($desktop-wide) * 1em,
+
+  // min-width: 1440px
+  desktopSuperwide: em($desktop-superwide) * 1em,
+);
+
+
 .container {
   @include container();
 
-  @include susy-breakpoint($tablet, $susy_tablet) {
+  @include susy-media(tablet) {
     @include container($susy_tablet);
   }
 
-  @include susy-breakpoint($desktop, $susy_desktop) {
+  @include susy-media(desktop) {
     @include container($susy_desktop);
   }
 
-  @include susy-breakpoint($desktop-wide, $susy_desktop-wide) {
+  @include susy-media(desktopWide) {
     @include container($susy_desktop-wide);
   }
 
-  @include susy-breakpoint($desktop-superwide, $susy_desktop-superwide) {
+  @include susy-media(desktopSuperwide) {
     @include container($susy_desktop-superwide);
   }
 }
-
